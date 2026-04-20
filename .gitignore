@@ -1,0 +1,6 @@
+data/test_motion_data.csv
+strip_labels.py
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.env
