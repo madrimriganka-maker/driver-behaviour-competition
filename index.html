@@ -376,7 +376,20 @@
 <script>
 const BASELINE_F1 = 0.74;
 
-let leaderboard = JSON.parse(localStorage.getItem('lb_data') || '[]');
+let leaderboard = [];
+
+async function loadLeaderboard() {
+    try {
+        const res = await fetch('leaderboard.json');
+        leaderboard = await res.json();
+        render();
+    } catch(e) {
+        console.error('Could not load leaderboard.json', e);
+        render();
+    }
+}
+
+loadLeaderboard();
 
 function rowClass(rank) {
   if (rank === 1) return 'gold';
