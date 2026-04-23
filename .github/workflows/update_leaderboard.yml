@@ -1,12 +1,15 @@
 name: Update Leaderboard
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - main
 
 jobs:
   score:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
