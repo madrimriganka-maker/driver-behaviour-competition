@@ -1,16 +1,18 @@
 name: Update Leaderboard
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - main
+    paths:
+      - "submissions/**"
+  workflow_dispatch:
 
 jobs:
   score:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -24,12 +26,15 @@ jobs:
       - name: Install dependencies
         run: pip install pandas scikit-learn
 
-      - name: Fetch ground truth file
-        env:
-          GT_TOKEN: ${{ secrets.GT_ACCESS_TOKEN }}
-        run: |
-          git clone https://x-access-token:${GT_TOKEN}@github.com/siyaagarwal2005/competition-ground-truth.git gt_repo
-          cp gt_repo/test_motion_data.csv data/test_motion_data.csv
+      - name: Checkout ground truth repo
+        uses: actions/checkout@v4
+        with:
+          repository: siyaagarwal2005/competition-ground-truth
+          token: ${{ secrets.GT_ACCESS_TOKEN }}
+          path: gt_repo
+
+      - name: Copy ground truth file
+        run: cp gt_repo/test_motion_data.csv data/test_motion_data.csv
 
       - name: Run scoring script
         run: python leaderboard/update_leaderboard.py
