@@ -1,1 +1,44 @@
-[]
+[
+    {
+        "team": "Testing6",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 1
+    },
+    {
+        "team": "Testing",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 2
+    },
+    {
+        "team": "Testing5",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 3
+    },
+    {
+        "team": "Testing4",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 4
+    },
+    {
+        "team": "Team_testing",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 5
+    },
+    {
+        "team": "TeamAlpha",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 6
+    },
+    {
+        "team": "test_team_sub.csv",
+        "accuracy": 0.3233,
+        "f1_weighted": 0.158,
+        "rank": 7
+    }
+]
