@@ -29,6 +29,6 @@ submission = pd.DataFrame({
     "row_id": range(len(pred_labels)),
     "Class": pred_labels
 })
-output_path = os.path.join(BASE, "submissions", "Team_testing_submission.csv")
+output_path = os.path.join(BASE, "submissions", "Team_Alpha_submission.csv")
 submission.to_csv(output_path, index=False)
 print(f"Submission saved to: {output_path}")
